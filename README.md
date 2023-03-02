@@ -4,12 +4,10 @@ When compiling image:
 ```
 docker buildx create --use
 ```
-Build image (arm/x86):
+Build image and push to Docker Hub (arm/x86):
 ```
-docker buildx build --platform linux/amd64,linux/arm64 -t arthuracrs/hello .
+docker buildx build --platform linux/amd64,linux/arm64 -t arthuracrs/hello . --push
 ```
-
-After all Push to Docker Hub
 ```
-docker push arthuracrs/hello
+kubectl set image deployment/hello-deployment hello-container=arthuracrs/hello:1.0.2
 ```
